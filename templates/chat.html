@@ -23,21 +23,30 @@
             style="max-width: 50px; max-height: 50px; margin-right: 10px"
           />
           <blockquote style="border-left: 4px solid #43a047; margin: 0">
-            Batman here. Upload an image, and I'll share a Bat-fact. Prepare for
-            a subtle, dark remark about the image.
+            Batman here. Send an image or text, and I'll share a Bat-fact.
+            Prepare for a subtle, dark remark.
           </blockquote>
         </div>
       </div>
 
       <progress id="progress-bar" style="display: none"></progress>
 
-      <form id="chat-form">
+      <!-- Inside the form tag in templates/chat.html -->
+      <form id="chat-form" enctype="multipart/form-data">
         <div class="input-group mb-3">
           <input id="image-input" type="file" class="form-control" />
         </div>
+        <div class="input-group mb-3">
+          <textarea
+            id="text-input"
+            class="form-control"
+            rows="3"
+            placeholder="Enter text..."
+          ></textarea>
+        </div>
         <div class="input-group">
           <button type="submit" id="send-button" class="btn btn-primary">
-            Upload
+            Send
           </button>
         </div>
       </form>
@@ -66,20 +75,35 @@
       }
 
       $(function () {
+        // Inside the $(function () { ... }) block in templates/chat.html
         $("#chat-form").submit(function (e) {
           e.preventDefault();
 
           var formData = new FormData(this);
           var fileInput = $("#image-input")[0].files[0];
+          var textInput = $("#text-input").val();
 
-          formData.append("user_image", fileInput);
-
-          if (fileInput) {
+          if (fileInput || textInput.trim() !== "") {
             $("#chat-box").append(
               '<blockquote style="border-left: 4px solid #1288ff;">User: </blockquote>'
             );
-            appendImageToChat(fileInput);
+
+            if (fileInput) {
+              formData.append("user_image", fileInput);
+              appendImageToChat(fileInput);
+            }
+
+            if (textInput.trim() !== "") {
+              $("#chat-box").append(
+                '<p style="margin: 0; padding: 5px; background-color: #dee2e6; border-radius: 5px;">' +
+                  textInput +
+                  "</p>"
+              );
+              formData.append("user_text", textInput);
+            }
+
             $("#image-input").val("");
+            $("#text-input").val("");
             $("#progress-bar").show();
 
             $.ajax({
