@@ -44,36 +44,64 @@ model = genai.GenerativeModel(model_name="gemini-pro-vision",
 def hello_world():
     return render_template("chat.html")
 
+# Inside the /chat route in app.py
 @app.route('/chat', methods=['POST'])
 def chat():
-    if 'user_image' not in request.files:
-        return jsonify({"error": "No file part"})
+    user_image = request.files.get('user_image')
+    user_text = request.form.get('user_text', '')
 
-    file = request.files['user_image']
+    if not user_image and not user_text.strip():
+        return jsonify({"error": "No input provided"})
 
-    if file.filename == '':
-        return jsonify({"error": "No selected file"})
+    prompt_parts = [
+        "You are Batman. The dark knight. The user is reaching out to you.\n\n",
+    ]
 
-    if file:
-        image_data = file.read()
+    if user_text.strip():
+        prompt_parts.extend([
+            "User's text:\n\n",
+            user_text,
+            "\n\n",
+        ])
+
+    if user_image:
+        image_data = user_image.read()
         image_parts = [
             {
-                "mime_type": file.content_type,
+                "mime_type": user_image.content_type,
                 "data": image_data
             },
         ]
-
-        prompt_parts = [
-"You are Batman. The dark knight. The user is about to upload an image, and it's your mission to analyze it. Provide a Batman-style fun fact and accompany it with a clever, maybe slightly brooding, remark about the image. \n\nUser's image:\n\n",
+        prompt_parts.extend([
+            "User's image:\n\n",
             image_parts[0],
-            "\n\nFun fact:\n",
-        ]    
+            "\n\n",
+        ])
 
-        response = model.generate_content(prompt_parts)
+    prompt_parts.append("Your response:\n")
 
-        return jsonify({
-            "response": marko.convert(response.text)
-        })
+    if user_text.strip() and user_image:
+        # If both image and text are provided, use gemini-pro-vision model
+        image_model = genai.GenerativeModel(model_name="gemini-pro-vision",
+                              generation_config=config,
+                              safety_settings=safety_settings)
+        response = image_model.generate_content(prompt_parts)
+    elif user_text.strip():
+        # If only text is provided, switch to gemini-pro model
+        text_model = genai.GenerativeModel(model_name="gemini-pro", generation_config=config)
+        response = text_model.generate_content(prompt_parts)
+    elif user_image:
+        # If only image is provided, use gemini-pro-vision model
+        image_model = genai.GenerativeModel(model_name="gemini-pro-vision",
+                              generation_config=config,
+                              safety_settings=safety_settings)
+        response = image_model.generate_content(prompt_parts)
+
+    return jsonify({
+        "response": marko.convert(response.text)
+    })
+
+
 
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
