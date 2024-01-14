@@ -88,7 +88,7 @@ def chat():
         response = image_model.generate_content(prompt_parts)
     elif user_text.strip():
         # If only text is provided, switch to gemini-pro model
-        text_model = genai.GenerativeModel(model_name="gemini-pro", generation_config=config)
+        text_model = genai.GenerativeModel(model_name="gemini-pro", generation_config=config,safety_settings=safety_settings)
         response = text_model.generate_content(prompt_parts)
     elif user_image:
         # If only image is provided, use gemini-pro-vision model
