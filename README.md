@@ -112,6 +112,18 @@ https://github.com/subho004/BatChat/assets/91646273/76fcc069-2372-4f33-8953-55dc
 ## <a name="image">📱 Screenshots</a>
 
 ### Version 2.0
+<img width="1678" alt="Screenshot 2024-01-14 at 6 10 06 PM" src="https://github.com/subho004/BatGPT/assets/91646273/3b44564c-82de-4264-b9f4-bc2b11859e20">
+<img width="1674" alt="Screenshot 2024-01-14 at 6 11 17 PM" src="https://github.com/subho004/BatGPT/assets/91646273/96965b82-4b06-45a2-b78e-89c48cd5c75f">
+<img width="1680" alt="Screenshot 2024-01-14 at 6 31 47 PM" src="https://github.com/subho004/BatGPT/assets/91646273/f322ffa9-dfc5-47d5-9d55-86b48361dda0">
+<img width="1674" alt="Screenshot 2024-01-14 at 6 32 09 PM" src="https://github.com/subho004/BatGPT/assets/91646273/8b4980fe-f38d-4606-84c2-31469ec5cdfc">
+<img width="1680" alt="Screenshot 2024-01-14 at 6 34 24 PM" src="https://github.com/subho004/BatGPT/assets/91646273/a4091f3a-bc25-4d6b-b427-b2d10813131a">
+<img width="1680" alt="Screenshot 2024-01-14 at 6 32 52 PM" src="https://github.com/subho004/BatGPT/assets/91646273/fad618bf-99eb-4cd1-837b-c8b8e62284d0">
+<img width="1680" alt="Screenshot 2024-01-14 at 6 33 58 PM" src="https://github.com/subho004/BatGPT/assets/91646273/249a6cc1-8ffc-48d4-8aca-82dc8250324e">
+<img width="1679" alt="Screenshot 2024-01-14 at 6 34 41 PM" src="https://github.com/subho004/BatGPT/assets/91646273/ffdc5734-12d9-4e39-a901-a8af5debefea">
+
+
+
+
 
 
 
