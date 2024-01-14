@@ -39,7 +39,7 @@ BatChat is a Flask-based web application that brings Batman's charm to your conv
 1. **Clone the repository:**
 
 ```bash
-git clone https://github.com/your-username/batchat.git
+git clone https://github.com/subho004/BatGPT.git
 ```
 
 2. **Navigate to the project folder:**
