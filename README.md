@@ -45,7 +45,7 @@ git clone https://github.com/subho004/BatGPT.git
 2. **Navigate to the project folder:**
 
 ```bash
-cd batchat
+cd BatGPT
 ```
 
 3. **Set up a virtual environment:**
