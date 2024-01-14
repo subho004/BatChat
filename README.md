@@ -8,7 +8,8 @@
 4. 🤸 [Quick Start](#quick-start)
 5. 🕸️ [Video Demo](#video)
 6. 🔗 [Screenshots](#image)
-7. 💁🏽 [Contributing](#contribute)
+7. 📖 [Reference](#reference)
+8. 💁🏽 [Contributing](#contribute)
 
 ## <a name="introduction">🤖 Introduction</a>
 BatChat is a Flask-based web application that brings Batman's charm to your conversations. Upload an image, and Batman will share a Bat-fact with a subtle, dark remark about the image.
@@ -103,6 +104,10 @@ https://github.com/subho004/BatChat/assets/91646273/76fcc069-2372-4f33-8953-55dc
 
 <img width="1663" alt="Screenshot 2024-01-14 at 12 47 37 PM" src="https://github.com/subho004/BatChat/assets/91646273/48f9ece6-2b4b-40a5-94d1-f944a90346d8">
 
+## <a name="reference">📖 Reference</a>
+
+[Google CodeLab
+](https://xprilion.com/codelab/gemini-pro-vision-multimodal-python-flask-generative-ai-example/#0)
 ## <a name="contribute">💁🏽 Contributing</a>
 
 Contributions are welcome! If you have ideas for new features, improvements, or find any issues, feel free to open an issue or submit a pull request.
